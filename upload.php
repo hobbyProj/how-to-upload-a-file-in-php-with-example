@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $message = ''; 
 if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
@@ -15,7 +14,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
     $fileExtension = strtolower(end($fileNameCmps));
 
     // sanitize file-name
-    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+    $newFileName =   $fileName;
 
     // check if file has one of the following extensions
     $allowedfileExtensions = array('jpg', 'gif', 'png', 'zip', 'txt', 'xls', 'doc');
@@ -46,5 +45,4 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
     $message .= 'Error:' . $_FILES['uploadedFile']['error'];
   }
 }
-$_SESSION['message'] = $message;
-header("Location: index.php");
+ 
